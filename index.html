@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="tephone=no,email=no,date=no,address=no">
+		<style type="text/css">
+			html {
+				background-color: white;
+			}
+			span {
+				padding: 5px 10px;
+				margin: 10px;
+				display: inline-block;
+				background-color: #e8e8e8;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>arcMenu</h1>
+			<mark>
+				使用前请详细阅读 文档 使用规则
+			</mark>
+			<hr />
+			<br />
+		</header>
+		<span tapmode onclick="fnOpen()">open()</span>
+		<span tapmode onclick="fnClose()">close()</span>
+		<span tapmode onclick="fnHide()">hide()</span>
+		<span tapmode onclick="fnShow()">show()</span>
+	</body>
+	<script type="text/javascript">
+		var arcMenu;
+		apiready = function() {
+			arcMenu = api.require('arcMenu');
+		};
+		function fnOpen() {
+			arcMenu.open({
+				type : 'arc',
+				mainMenu : {
+					x : 140,
+					y : 360,
+					w : 50,
+					h : 50,
+					img : 'widget://res/1.png',
+					imgLight : 'widget://res/1.png'
+				},
+				items : [{
+					w : 40,
+					h : 40,
+					img : 'widget://res/2.png',
+					imgLight : 'widget://res/2.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/3.png',
+					imgLight : 'widget://res/3.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/4.png',
+					imgLight : 'widget://res/4.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/5.png',
+					imgLight : 'widget://res/5.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/6.png',
+					imgLight : 'widget://res/6.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/8.png',
+					imgLight : 'widget://res/8.png'
+				}, {
+					w : 40,
+					h : 40,
+					img : 'widget://res/9.png',
+					imgLight : 'widget://res/8.png'
+				}],
+				startAngle : 0,
+				wholeAngle : 180,
+				radius : 100
+			}, function(ret, err) {       
+			    if( ret ){
+			        alert( JSON.stringify( ret ) );
+			    }else{
+			        alert( JSON.stringify( err ) );
+			    }
+			});
+		};
+		function fnClose() {
+			arcMenu.close({
+				id : 1
+			});
+		};
+		function fnHide() {
+			arcMenu.hide({
+				id : 1
+			});
+		};
+		function fnShow() {
+			arcMenu.show({
+				id : 1
+			});
+		};
+	</script>
+</html>
